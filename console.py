@@ -27,5 +27,6 @@ class HBNBCommand(cmd.Cmd):
         """ Do nothing and overide empty lines """  
         pass
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
