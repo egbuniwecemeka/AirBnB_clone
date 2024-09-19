@@ -9,10 +9,19 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, line):
-        """ Creates a new instance, saves to (JSON file) and print it's id """
-        new_instance = BaseModel()
-        new_instance.save()
-        print(new_instance.id)
+        """ Creates a new instance, saves to (JSON file) and print it's id 
+        Usage: create <className> (e.g create BaseModel)
+        """
+        if not line:
+            print("** class name missing **")
+            return
+        
+        try:
+            new_instance = eval(line)
+            new_instance.save()
+            print(new_instance.id)
+        except NameError:
+            print("** class doesn't exist **")
 
 
     def do_help(self, line):
