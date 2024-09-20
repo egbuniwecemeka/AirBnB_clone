@@ -2,6 +2,7 @@
 """ The entry point to a command interpreter """
 
 import cmd
+import shlex
 from models.base_model import BaseModel
 from models import storage
 
@@ -25,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
-    def show(self, line):
+    def do_show(self, line):
         """ Prints class string representation using class name and id
         Usage: show <class_name> <class_id>
         """
@@ -33,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         
-        args = line.split()
+        args = shlex.split(line)
 
         # Check if class name and id are provided
         if len(args) < 2:
