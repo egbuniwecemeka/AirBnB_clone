@@ -35,23 +35,28 @@ class HBNBCommand(cmd.Cmd):
         
         args = line.split()
 
+        # Check if class name and id are provided
+        if len(args) < 2:
+            print("** instance id missing **")
+
         class_name = args[0]
         class_id = args[1]
 
         try:
+            # Check if class exist
             eval(class_name)
         except NameError:
             print("** class doesn't exist **")
-
-        if len(line) < 2:
-            print("** instance id missing **")
+            return
         
+        # Accessing the storage
         key = f"{class_name}.{class_id}"
         all_objects = storage.all()
 
         if key not in all_objects:
             print("** no instance found **")
         else:
+            # print the string representation of the instance
             print(f"{all_objects[key]}")
 
     def do_help(self, line):
