@@ -24,37 +24,6 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
         except NameError:
             print("** class doesn't exist **")
-        
-    def show(self, line):
-        """ Prints a string rep of an instance based on class name and id
-        Usage: show <className && id>
-        """
-        if not line:
-            print(" ** class name missing **")
-            return
-        
-        args = line.split()
-
-        if len(args) < 2:
-            print("class id missing")
-
-        class_name = args[0]
-        class_id = args[1]
-
-        try:
-            # Check if class name exists
-            eval(class_name)
-        except NameError:
-            print("class does not exist")
-        
-        key = f"{class_name}.{class_id}"
-        all_objects = storage.all()
-        
-        if key not in all_objects:
-            print(" ** no instance found **")
-        else:
-            # print the string representation of the instance
-            print(all_objects[key])
 
     def do_help(self, line):
         """ List all interpreter commands"""
