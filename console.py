@@ -56,8 +56,6 @@ class HBNBCommand(cmd.Cmd):
             # print the string representation of the instance
             print(all_objects[key])
 
-
-
     def do_help(self, line):
         """ List all interpreter commands"""
         if cmd.Cmd.do_help(self, line):
