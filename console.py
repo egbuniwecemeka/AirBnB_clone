@@ -38,16 +38,17 @@ class HBNBCommand(cmd.Cmd):
         # Check if class name and id are provided
         if len(args) < 2:
             print("** instance id missing **")
-
-        class_name = args[0]
-        class_id = args[1]
-
+            return
+        
         try:
             # Check if class exist
             eval(class_name)
         except NameError:
             print("** class doesn't exist **")
             return
+
+        class_name = args[0]
+        class_id = args[1]
         
         # Accessing the storage
         key = f"{class_name}.{class_id}"
