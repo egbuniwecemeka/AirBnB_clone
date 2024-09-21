@@ -88,7 +88,6 @@ class HBNBCommand(cmd.Cmd):
             return
         
         class_id = args[1]
-
         key = f"{class_name}.{class_id}"
         all_objects = storage.all()
 
