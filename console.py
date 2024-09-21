@@ -99,7 +99,6 @@ class HBNBCommand(cmd.Cmd):
             del all_objects[key]
             storage.save()
 
-
     def do_help(self, line):
         """ List all interpreter commands"""
         if cmd.Cmd.do_help(self, line):
